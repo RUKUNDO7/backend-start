@@ -10,7 +10,7 @@ const { //destructuring
 
 router.get('/', getUsers)
 router.post('/', addUser)
-router.delete('/:index', deleteUser)
+router.delete('/:id', deleteUser)
 router.get('/test', testUser)
 
 module.exports = router //This makes the router object available to other files
