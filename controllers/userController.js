@@ -25,5 +25,9 @@ const deleteUser = (req, res) => {
     res.send("User deleted")
 }
 
-module.exports = { getUsers, addUser, deleteUser}
+const testUser = (req, res) => {
+    res.send("User route is working")
+}
+
+module.exports = { getUsers, addUser, deleteUser, testUser}
 
