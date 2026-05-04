@@ -4,11 +4,13 @@ const router = express.Router()
 const { //destructuring
     getUsers,
     addUser,
-    deleteUser
+    deleteUser, 
+    testUser
 } = require('../controllers/userController')
 
 router.get('/', getUsers)
 router.post('/', addUser)
 router.delete('/:index', deleteUser)
+router.get('/test', testUser)
 
 module.exports = router //This makes the router object available to other files
