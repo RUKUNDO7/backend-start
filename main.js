@@ -1,6 +1,12 @@
 const express = require('express')
 const app = express()
 
+const mongoose = require('mongoose')
+
+mongoose.connect("mongodb://127.0.0.1:27017/backend-start")
+.then(() => console.log("MongoDB connected"))
+.catch(err => console.log(err))
+
 const userRoutes = require('./routes/userRoutes')
 
 app.use(express.json())
