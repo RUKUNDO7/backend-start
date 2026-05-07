@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const User = require("../models/User")
 
@@ -81,7 +82,20 @@ const signup = async (req, res) => {
                                                  the name exists or the password is wrong. */
     }
 
-    res.status(200).json({ message: "Login successful" })
+    const token = jwt.sign(
+        { id: user._id, name: user.name },
+        "secretkey",
+        { expiresIn: "1h"}
+    )
+
+    res.status(200).json({ 
+        message: "Login successful",
+        token: token /*Includes the generated JWT token 
+                     in the response body under the key token.  
+                     The client can store this token (e.g., in  
+                     localStorage or a cookie) and send it with  
+                     future requests to prove they are authenticated.*/
+     })
 }
 
 module.exports = { getUsers, addUser, deleteUser, testUser, signup, login} //This exports all the controller functions so the route file can use them
