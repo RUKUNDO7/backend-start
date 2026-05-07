@@ -1,3 +1,4 @@
+require("dotenv").config()  //load .env at the very start
 const express = require('express')
 const app = express()
 
