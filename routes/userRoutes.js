@@ -1,4 +1,5 @@
 const express = require('express')
+const auth = require('../middleware/auth')
 const router = express.Router()
 
 const { //destructuring
@@ -10,7 +11,7 @@ const { //destructuring
     login
 } = require('../controllers/userController')
 
-router.get('/', getUsers)
+router.get('/', auth, getUsers)
 router.post('/', addUser)
 router.delete('/:id', deleteUser)
 router.get('/test', testUser)
