@@ -5,7 +5,7 @@ const auth = (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1]
 
     if(!token) {
-        return res.status(401).json({ message: "No token provided" }) /*Immediately sends back a  
+        return res.status(401).json({ message: 'No token provided' }) /*Immediately sends back a  
                                                                       401 (Unauthorized) response  
                                                                       with a JSON message saying  
                                                                       "No token provided".  
@@ -20,7 +20,7 @@ const auth = (req, res, next) => {
         req.user = decoded
         next()
     } catch (err) {
-        return res.status(403).json({ message: "Invalid token"}) /* Sends a 403 (Forbidden) response  
+        return res.status(403).json({ message: 'Invalid token'}) /* Sends a 403 (Forbidden) response  
                                                                  with a JSON message "Invalid token".  
                                                                  (Some people use 401 here, but the logic  
                                                                  is: the token is present but incorrect/expired,  
